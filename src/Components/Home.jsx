@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import hcars from "../assets/icons8-traffic-jam-64.png"
 import price from "../assets/icons8-price-tag-50.png"
 import support from "../assets/icons8-online-support-50.png"
 import booking from "../assets/icons8-booking-50.png"
 const Home = () => {
+    const[latestcar,setLatestcar]=useState([]);
+  fetch(`${import.meta.env.VITE_API_URL}/latestcars`)
+  .then(res=>res.json())
+  .then(data=>setLatestcar(data))
+ 
     return (
         <div className='home pt-4'>
            <section >
@@ -62,6 +67,32 @@ borderRadius:"80px"
                     </div>
                 </div>
                </div>
+            </section>
+            <section className='pt-12 container mx-auto'>
+            <h1 className='text-center text-4xl font-extrabold pb-16 '>Latest Cars</h1>
+            <div className='grid lg:grid-cols-3 grid-cols-1 gap-8 pl-4'> 
+              {  latestcar.map(lcar=>
+                  <div className=''>
+                     <div className="card bg-black w-96  rounded-xl transition ease-in-out  hover:scale-105">
+    <figure>
+      <img
+        src={lcar.car_image} className="w-[300px] h-[300px] pt-10 "
+        alt="Shoes" />
+    </figure>
+    <div className="card-body pl-16">
+      <h2 className="card-title">{lcar.model}</h2>
+     
+      <p>Price : {lcar.daily_price}</p>
+      <p>Availability : {lcar.availability}</p>
+      <p>Booking_count : {lcar.booking_count}</p>
+      <p>Posted on :{lcar.date_posted}</p>
+
+    </div>
+  </div> 
+                  </div>
+
+              )}
+            </div>
             </section>
         </div>
     );
