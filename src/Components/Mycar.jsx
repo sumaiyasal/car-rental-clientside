@@ -6,6 +6,26 @@ import { Navigate, useLoaderData, useLocation, useNavigate } from "react-router-
 const Mycar = ({car}) => {
     const {user} = useContext(AuthContext);
     const{car_image,model,daily_price,booking_count,availability,date_posted,rnumber,features,location,_id,description}=car;
+    const handledelete=()=>{
+        console.log(_id);
+        fetch(`${import.meta.env.VITE_API_URL}/cars/${_id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+
+                    
+                    console.log("deleted");
+
+                }
+            })}
   const handleSubmit=(e)=>{
     console.log("okk");
     e.preventDefault();
@@ -44,7 +64,7 @@ const Mycar = ({car}) => {
         status,
         features: selectedFeatures, 
     };
-    console.log(newcar);
+   
     fetch(`${import.meta.env.VITE_API_URL}/cars/${_id}`, {
                     method: 'PUT',
                     headers: {
@@ -81,7 +101,7 @@ const Mycar = ({car}) => {
        <td>{date_posted}</td>
        <td><button type="btn" className="btn bg-lime-300"  onClick={()=>document.getElementById('my_modal_1').showModal()
         }>Update</button></td>
-       {/* <td><button type="btn" className="btn bg-red-300" onClick={()=>handledelete(_id)}>Delete</button></td> */}
+      
        <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
   <div className="container mx-auto ">
@@ -260,7 +280,6 @@ const Mycar = ({car}) => {
         </div>
       </div>
         </div>
-    <p className="py-4">Press ESC key or click the button below to close</p>
     <div className="modal-action">
       <form method="dialog">
         
@@ -269,6 +288,7 @@ const Mycar = ({car}) => {
     </div>
   </div>
 </dialog>
+ <td><button type="btn" className="btn bg-red-300" onClick={handledelete}>Delete</button></td>
      </tr>
      
     );

@@ -26,13 +26,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/availablecars",
-        element: <Availablecars></Availablecars>
+        element: <Availablecars></Availablecars>,
+        loader:()=>fetch(`${import.meta.env.VITE_API_URL}/cars`)
         ,
       },
       {
         path: "/mycars",
         element:<Mycars></Mycars>
-        
+
         ,
       },
       {

@@ -162,7 +162,7 @@ const Addcar = () => {
               </label>
               <textarea
               name="description"
-             placeholder="Enter your review"
+             placeholder="Description"
              className="input input-bordered"
                required
               ></textarea>
