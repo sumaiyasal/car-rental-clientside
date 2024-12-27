@@ -9,6 +9,8 @@ import {
 import Availablecars from './Components/Availablecars.jsx';
 import Home from './Components/Home.jsx';
 import AuthProvider from './Components/Authprovide.jsx';
+import Login from './Components/Login.jsx';
+import Signup from './Components/Signup.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
         path: "/availablecars",
         element: <Availablecars></Availablecars>
         ,
+      },
+      {
+        path: "/login",
+        element: <Login/>,
+      },
+      {
+        path: "/signup",
+        element: <Signup/>,
       },
     ]
   },

@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import  "./navbar.css"
 // import { AuthContext } from "./AuthProvider";
 import car from "../assets/car.jpg"
+import { AuthContext } from "./Authprovide";
 // import { Tooltip } from 'react-tooltip'
 const Navbar = () => {
-//   const{user,signout,toggleTheme}=useContext(AuthContext);
-//   console.log(user);
+  const{user,signout,toggleTheme}=useContext(AuthContext);
+  console.log(user);
     
   
  
@@ -80,32 +81,22 @@ const links=<>
       {links}
     </ul>
   </div>
-  {/* {user && user?.email ? (
+  {user && user?.email ? (
           <div className="navbar-end flex gap-2">
-             <div class="avatar">
-    <div class="w-12">
-      <img src={user.photo?user.photo:`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU3Mk-vKpOPglmhuwPLivuDRJUU5T1QIPCAg&s`} className="w-[50px] h-[50px] picimg" />
-      <Tooltip anchorSelect=".picimg" place="left">
- {user.displayName}
-</Tooltip>
-    </div>
-  </div>
-             <button onClick={signout} className="btn bg-orange-300 rounded-xl ">
+  
+             <button onClick={signout} className="btn bg-white text-orange-500 border-2 border-orange-500 hover:bg-orange-500 hover:text-white font-bold">
             Log-Out
           </button>
             </div>
          
         ) : (
           <div className="navbar-end flex gap-2">
-          <NavLink to="/login" className="btn bg-sky-300">Login</NavLink>
-          <NavLink to="/signup" className="btn bg-orange-300">Sign Up</NavLink>
-          </div>
-        )} */}
-  <div className="navbar-end flex gap-2">
-          <NavLink to="/login" className="btn bg-white text-orange-500 border-2 border-orange-500 hover:bg-orange-500 hover:text-white font-bold">Login</NavLink>
+         <NavLink to="/login" className="btn bg-white text-orange-500 border-2 border-orange-500 hover:bg-orange-500 hover:text-white font-bold">Login</NavLink>
         
-          <NavLink to="/signup" className="btn bg-white text-orange-500 border-2 border-orange-500 hover:bg-orange-500 hover:text-white">Sign Up</NavLink>
+        <NavLink to="/signup" className="btn bg-white text-orange-500 border-2 border-orange-500 hover:bg-orange-500 hover:text-white">Sign Up</NavLink>
           </div>
+        )}
+
 </div>
         </div>
     );
