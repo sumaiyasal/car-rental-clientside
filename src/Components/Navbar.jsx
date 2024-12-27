@@ -24,12 +24,12 @@ const links=<>
       marginRight:'8px',
      
     })}>Available Cars</NavLink></li>
-    <li><NavLink to='/addReview'style={({ isActive }) => ({
+    <li><NavLink to='/addcar'style={({ isActive }) => ({
       backgroundColor: isActive ? '#ff5733' : '#e2e6ea', 
       color: isActive ? 'white' : '#333', 
       marginRight:'8px',
     })}>Add Car</NavLink></li>
-<li><NavLink to='/myReviews'style={({ isActive }) => ({
+<li><NavLink to='/mycars'style={({ isActive }) => ({
       backgroundColor: isActive ? '#ff5733' : '#e2e6ea', 
       color: isActive ? 'white' : '#333', 
       marginRight:'8px',

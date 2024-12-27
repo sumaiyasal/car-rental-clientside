@@ -11,6 +11,8 @@ import Home from './Components/Home.jsx';
 import AuthProvider from './Components/Authprovide.jsx';
 import Login from './Components/Login.jsx';
 import Signup from './Components/Signup.jsx';
+import Addcar from './Components/Addcar';
+import Mycars from './Components/Mycars.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,17 @@ const router = createBrowserRouter([
       {
         path: "/availablecars",
         element: <Availablecars></Availablecars>
+        ,
+      },
+      {
+        path: "/mycars",
+        element:<Mycars></Mycars>
+        
+        ,
+      },
+      {
+        path: "/addcar",
+        element: <Addcar></Addcar>
         ,
       },
       {
