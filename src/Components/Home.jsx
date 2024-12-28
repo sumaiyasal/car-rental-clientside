@@ -5,6 +5,7 @@ import price from "../assets/icons8-price-tag-50.png"
 import support from "../assets/icons8-online-support-50.png"
 import booking from "../assets/icons8-booking-50.png"
 import 'animate.css';
+import Marquee from "react-fast-marquee";
 const Home = () => {
     const[latestcar,setLatestcar]=useState([]);
   fetch(`${import.meta.env.VITE_API_URL}/latestcars`)
@@ -37,7 +38,7 @@ borderRadius:"80px"
         </div>
             </section> 
             <section className='pt-12 container mx-auto'>
-                <h1 className='text-center text-4xl font-extrabold pb-16 '>Why Choose Us</h1>
+                <h1 className='text-center text-4xl font-extrabold pb-16 '> <span className='border-l-4 border-orange-500 p-2'>Why Choose Us</span></h1>
                <div className='grid lg:grid-cols-2 sm:grid-cols-1 '>
                 <div className='flex gap-4 items-start lg:border-b-2 lg:border-r-2 border-orange-500 p-8'>
                     <img src={hcars} alt=""  className='w-10 h-10 '/>
@@ -70,7 +71,7 @@ borderRadius:"80px"
                </div>
             </section>
             <section className='pt-12 container mx-auto'>
-            <h1 className='text-center text-4xl font-extrabold pb-16 '>Latest Cars</h1>
+            <h1 className='text-center text-4xl font-extrabold pb-16 '> <span className='border-l-4 border-orange-500 p-2'>Latest Cars</span></h1>
             <div className='grid lg:grid-cols-3 grid-cols-1 gap-8 pl-4'> 
               {  latestcar.map(lcar=>
                   <div className=''>
@@ -95,10 +96,10 @@ borderRadius:"80px"
               )}
             </div>
             </section>
-            <section className='pt-12 container mx-auto'>
-            <h1 className='text-center text-4xl font-extrabold pb-40 '>Special Offers</h1>
+            <section className='py-12 container mx-auto'>
+            <h1 className='text-center  text-4xl font-extrabold pb-32 pt-20'><span className='border-l-4 border-orange-500 p-2'>Special Offers</span></h1>
 
-            <div className='grid lg:grid-cols-3 grid-cols-1'>
+            <div className='grid lg:grid-cols-3 grid-cols-1 pl-4 gap-4'>
             <div className="card bg-black w-96  rounded-xl transition ease-in-out   hover:animate-bounce ">
     <figure>
       <img
@@ -149,6 +150,88 @@ borderRadius:"80px"
             </div>
             
             
+            </section>
+            <section className='py-12 container mx-auto '>
+            <h1 className='text-center text-4xl font-extrabold pb-28 '>
+            <span className='border-l-4 border-orange-500 p-2'>Customers Review</span></h1>
+            <div>
+            <Marquee>
+
+            <div className="card bg-black mr-8 w-96 shadow-xl">
+  <div className="card-body">
+  <div className="rating">
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input
+    type="radio"
+    name="rating-2"
+    className="mask mask-star-2 bg-orange-400"
+    defaultChecked />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+</div>
+    <p className='py-4'>I rented a compact sedan, which was clean, in great condition, and drove smoothly. The vehicle had a full tank of gas, and I was reminded to return it the same way. I really appreciated the option to add a GPS.</p>
+    <hr className='' />
+    <div className='flex gap-4'>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Hb5xzFZJCTW4cMqmPwsgfw-gILUV7QevvQ&s" alt="" className='w-20 h-20 rounded-full'/>
+      <div className='pt-4'>
+        <p><strong>Rehana Sultana</strong></p>
+        <p>Project Manager</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div className="card bg-black mr-8 w-96 shadow-xl">
+  <div className="card-body">
+  <div className="rating">
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input
+    type="radio"
+    name="rating-2"
+    className="mask mask-star-2 bg-orange-400"
+    defaultChecked />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+</div>
+    <p className='py-4'>I rented a compact car for a short trip to a nearby city. The car was just what I needed—fuel-efficient, easy to park, and comfortable for driving around town. The pickup process was simple, and the staff was helpful.</p>
+    <hr className='' />
+    <div className='flex gap-4'>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDRlp-KGr_M94k_oor4Odjn2UzbAS7n1YoA&s" alt="" className='w-20 h-20 rounded-full'/>
+      <div className='pt-4'>
+        <p><strong>Akib Rahman</strong></p>
+        <p>Project Manager</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div className="card bg-black mr-8 w-96 shadow-xl">
+  <div className="card-body">
+  <div className="rating">
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input
+    type="radio"
+    name="rating-2"
+    className="mask mask-star-2 bg-orange-400"
+    defaultChecked />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+</div>
+    <p className='py-4'>I rented a mid-size SUV  during a recent trip. The car was great, and the pick-up process was smooth. The staff was friendly, and the vehicle was in good condition, with no issues during my rental.</p>
+    <hr className='' />
+    <div className='flex gap-4'>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwme89cM8YZvHcybGrZl_Obd9U9p5QabozJQ&s" alt="" className='w-20 h-20 rounded-full'/>
+      <div className='pt-4'>
+        <p><strong>Nishi Akter</strong></p>
+        <p>Manager</p>
+      </div>
+    </div>
+  </div>
+</div>
+            </Marquee>
+            
+            </div>
             </section>
         </div>
     );
