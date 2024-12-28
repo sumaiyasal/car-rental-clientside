@@ -15,11 +15,14 @@ import Addcar from './Components/Addcar';
 import Mycars from './Components/Mycars.jsx';
 import Cardetails from './Components/Cardetails.jsx';
 import Bookingdetails from './Components/Bookingdetails.jsx';
+import Error from './Error.jsx';
+import Privateroutes from './Components/Privateroutes.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: "/",
@@ -34,7 +37,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/bookingdetails",
-        element: <Bookingdetails></Bookingdetails>,
+        element: <Privateroutes>
+            <Bookingdetails></Bookingdetails>
+        </Privateroutes>
+      ,
         loader:()=>fetch(`${import.meta.env.VITE_API_URL}/bookingdetails`)
         ,
       },
@@ -46,13 +52,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/mycars",
-        element:<Mycars></Mycars>
+        element:
+        <Privateroutes>
+          <Mycars></Mycars>
+        </Privateroutes>
 
         ,
       },
       {
         path: "/addcar",
-        element: <Addcar></Addcar>
+        element: <Privateroutes>
+          <Addcar></Addcar>
+        </Privateroutes>
+        
         ,
       },
       {
