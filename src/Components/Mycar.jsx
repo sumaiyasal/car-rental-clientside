@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from './Authprovide';
 import Swal from 'sweetalert2';
 import { Navigate, useLoaderData, useLocation, useNavigate } from "react-router-dom";
-const Mycar = ({car}) => {
+const Mycar = ({car,setMycars}) => {
     const {user} = useContext(AuthContext);
     const{car_image,model,daily_price,booking_count,availability,date_posted,rnumber,features,location,_id,description}=car;
+    const navigate = useNavigate();
+    
     const handledelete=()=>{
-        console.log(_id);
+        // console.log(_id);
+   
         fetch(`${import.meta.env.VITE_API_URL}/cars/${_id}`, {
             method: 'DELETE'
         })
@@ -20,7 +23,7 @@ const Mycar = ({car}) => {
                         text: "Your file has been deleted.",
                         icon: "success"
                     });
-
+                    setMycars(prevCars => prevCars.filter(car => car._id !== _id));
                     
                     console.log("deleted");
 
@@ -76,7 +79,7 @@ const Mycar = ({car}) => {
                     .then(data => {
                         console.log(data);
                         if (data.modifiedCount) {
-
+                           
                             console.log('successfully updated');
                             Swal.fire({
                                 title: 'Success!',
@@ -85,9 +88,10 @@ const Mycar = ({car}) => {
                                 confirmButtonText: 'Ok'
                             });
                             e.target.reset();
+                            navigate(0);
                             
                         }
-                        // navigate(location?.state ? location.stats : "/");
+                        // navigate(location?.state ? location.stats : "/mycars");
             })
   }
     return (

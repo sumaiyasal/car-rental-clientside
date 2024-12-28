@@ -13,6 +13,8 @@ import Login from './Components/Login.jsx';
 import Signup from './Components/Signup.jsx';
 import Addcar from './Components/Addcar';
 import Mycars from './Components/Mycars.jsx';
+import Cardetails from './Components/Cardetails.jsx';
+import Bookingdetails from './Components/Bookingdetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,8 +29,20 @@ const router = createBrowserRouter([
       {
         path: "/availablecars",
         element: <Availablecars></Availablecars>,
-        loader:()=>fetch(`${import.meta.env.VITE_API_URL}/cars`)
+       
+        
+      },
+      {
+        path: "/bookingdetails",
+        element: <Bookingdetails></Bookingdetails>,
+        loader:()=>fetch(`${import.meta.env.VITE_API_URL}/bookingdetails`)
         ,
+      },
+      {
+        path: "/cardetails/:id",
+        element:<Cardetails></Cardetails>
+        ,
+        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/cars/${params.id}`)
       },
       {
         path: "/mycars",

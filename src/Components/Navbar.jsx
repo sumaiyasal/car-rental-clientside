@@ -34,7 +34,7 @@ const links=<>
       color: isActive ? 'white' : '#333', 
       marginRight:'8px',
     })}>My Cars</NavLink></li>
-<li><NavLink to='/myWatchlist'style={({ isActive }) => ({
+<li><NavLink to='/bookingdetails'style={({ isActive }) => ({
       backgroundColor: isActive ? '#ff5733' : '#e2e6ea', 
       color: isActive ? 'white' : '#333', 
       marginRight:'8px',

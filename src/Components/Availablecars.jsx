@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-
+import list from "../assets/list.png"
+import grid from "../assets/icons8-grid-50.png"
 const Availablecars = () => {
   const [sortOption, setSortOption] = useState('dateAddedDesc');
   const[availcars,setAvailcars]=useState([]);
+  const [view, setView] = useState('grid');
   useEffect(() => {
     
       fetch(`${import.meta.env.VITE_API_URL}/availcars?sortOption=${sortOption}`)
@@ -15,10 +17,14 @@ const Availablecars = () => {
 const handleSortChange = (e) => {
     setSortOption(e.target.value);  
   };
+  const handleViewToggle = () => {
+    setView(view === 'grid' ? 'list' : 'grid');
+  };
     return (
      <div className="home">
         <div className="container mx-auto">
         <h1 className='text-center text-4xl font-extrabold p-16 '>Latest Cars</h1>
+        <div className="flex justify-between items-center p-4">
         <div className="sorting-options text-black pb-4">
         <label className="text-white">Sort By: </label>
         <select onChange={handleSortChange} value={sortOption}>
@@ -26,7 +32,14 @@ const handleSortChange = (e) => {
           <option value="dateAddedAsc">Date (Oldest First)</option>
         </select>
       </div>
-          <div className='grid lg:grid-cols-3 grid-cols-1 gap-8 pl-4'> 
+      <div className="view-toggle">
+        <button onClick={handleViewToggle}>
+          {view === 'grid' ? <img src={list} className="w-10"/> : <img src={grid} className="w-10"/>}
+        </button>
+      </div>
+        </div>
+      
+          <div className={view=='grid'?'grid lg:grid-cols-3 grid-cols-1 gap-8 pl-4':'grid grid-cols-1 gap-8 pl-4'}> 
               {  availcars.map(lcar=>
                   <div className=''>
                      <div className="card bg-black w-96  rounded-xl ">
@@ -42,7 +55,7 @@ const handleSortChange = (e) => {
       <p>Availability : {lcar.availability}</p>
       <p>Booking_count : {lcar.booking_count}</p>
       <p>Posted on :{lcar.date_posted}</p>
-       <Link to='/cardetails'><button className="btn bg-orange-500">Book Now</button></Link>
+       <Link to={`/cardetails/${lcar._id}`}><button className="btn bg-orange-500">Book Now</button></Link>
     </div>
   </div> 
                   </div>

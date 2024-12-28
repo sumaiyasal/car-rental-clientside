@@ -56,7 +56,7 @@ const Mycars = () => {
 </thead>
 <tbody>
 {
-            mycars.map(car=><Mycar car={car}></Mycar>)
+            mycars.map(car=><Mycar car={car} setMycars={setMycars}></Mycar>)
          }  
      </tbody> 
      </table>
