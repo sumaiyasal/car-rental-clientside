@@ -23,7 +23,7 @@ const handleSortChange = (e) => {
     return (
      <div className="home">
         <div className="container mx-auto">
-        <h1 className='text-center text-4xl font-extrabold p-16 '>Latest Cars</h1>
+        <h1 className='text-center text-4xl font-extrabold p-16 '>Available Cars</h1>
         <div className="flex justify-between items-center p-4">
         <div className="sorting-options text-black pb-4">
         <label className="text-white">Sort By: </label>

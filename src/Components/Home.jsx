@@ -4,6 +4,7 @@ import hcars from "../assets/icons8-traffic-jam-64.png"
 import price from "../assets/icons8-price-tag-50.png"
 import support from "../assets/icons8-online-support-50.png"
 import booking from "../assets/icons8-booking-50.png"
+import 'animate.css';
 const Home = () => {
     const[latestcar,setLatestcar]=useState([]);
   fetch(`${import.meta.env.VITE_API_URL}/latestcars`)
@@ -93,6 +94,61 @@ borderRadius:"80px"
 
               )}
             </div>
+            </section>
+            <section className='pt-12 container mx-auto'>
+            <h1 className='text-center text-4xl font-extrabold pb-40 '>Special Offers</h1>
+
+            <div className='grid lg:grid-cols-3 grid-cols-1'>
+            <div className="card bg-black w-96  rounded-xl transition ease-in-out   hover:animate-bounce ">
+    <figure>
+      <img
+        src="https://img.freepik.com/free-vector/black-friday-sale-banner-with-discount-offer-details_1017-41262.jpg?uid=R180653337&ga=GA1.1.404924234.1727183298&semt=ais_hybrid" className="w-[300px] h-[300px] pt-10 "
+        alt="Shoes" />
+    </figure>
+    <div className="card-body pl-16">
+      <h2 className='text-xl'><strong> Black Friday Sale!!!</strong></h2>
+      <p>Grab Your Chance.</p>
+      <Link to='/availablecars'><button className='btn bg-orange-500'>Book Now</button></Link>
+     
+
+    </div>
+  </div>
+
+  <div className="card bg-black w-96  rounded-xl transition ease-in-out   hover:animate-bounce">
+    <figure>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBW-s8lr33g7D4YupQ4J0EfgJT_OQ4lJ5jWA&s" className="w-[300px] h-[300px] pt-10 "
+        alt="Shoes" />
+    </figure>
+    <div className="card-body pl-16">
+    <h2 className='text-xl'><strong>Exclusive Car For Rent</strong></h2>
+      <p>Up to 30% off</p>
+      <p>Grab Your Chance.</p>
+      <Link to='/availablecars'><button className='btn bg-orange-500'>Book Now</button></Link>
+     
+
+    </div>
+  </div>
+
+  <div className="card bg-black w-96  rounded-xl transition ease-out  hover:animate-bounce">
+    <figure>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1kjhk6qJPk3Ehs3QxVeWk5PwCdhdVWy_6Nw&s" className="w-[300px] h-[300px] pt-10 "
+        alt="Shoes" />
+    </figure>
+    <div className="card-body pl-16">
+    <h2 className='text-xl'><strong>Weekend Offer</strong></h2>
+      <p>Grab Your Chance.</p>
+    <Link to='/availablecars'><button className='btn bg-orange-500'>Book Now</button></Link>
+     
+
+    </div>
+  </div>
+
+
+            </div>
+            
+            
             </section>
         </div>
     );
