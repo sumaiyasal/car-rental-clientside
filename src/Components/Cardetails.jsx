@@ -28,7 +28,9 @@ const location = useLocation();
         car_image,
         description,
         date: getTodaysDate(),
-        status:"confirmed"
+        status:"confirmed",
+        carID:_id,
+      
 
         }
         function getTodaysDate() {
@@ -51,7 +53,7 @@ const location = useLocation();
                     if (data.insertedId) {
                         console.log('successfully added');
                       
-                        e.target.reset();
+                        // e.target.reset();
                     }
                     navigate(location?.state ? location.stats : "/");
                 })

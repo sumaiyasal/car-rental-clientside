@@ -36,7 +36,7 @@ const Addcar = () => {
         description,
         availability,
         rnumber,
-        booking_count,
+        booking_count: parseInt(booking_count),
         location,
         daily_price,
         email,
@@ -173,9 +173,11 @@ const Addcar = () => {
               </label>
               <input
               name="bcount"
-              type="text"
+              type="number"
               placeholder="Booking number"
               className="input input-bordered"
+              defaultValue={0}
+              readOnly
               required
             />
             </div>

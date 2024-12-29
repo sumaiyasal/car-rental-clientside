@@ -2,15 +2,25 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./Authprovide"
 import Mycar from "./Mycar";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Secure from "./Secure";
 const Mycars = () => {
     const [mycars,setMycars]=useState([]);
     const [sortOption, setSortOption] = useState('dateAddedDesc');
-    const{user}=useContext(AuthContext)
+    const{user}=useContext(AuthContext);
+    const axiosSecure = Secure();
     useEffect(() => {
         if (user?.email) {
-          fetch(`${import.meta.env.VITE_API_URL}/user-cars/${user.email}?sortOption=${sortOption}`)
-            .then(res => res.json())
-            .then(data => setMycars(data))
+          // fetch(`${import.meta.env.VITE_API_URL}/user-cars/${user.email}?sortOption=${sortOption}`)
+          //   .then(res => res.json())
+          //   .then(data => setMycars(data))
+          // axios.get(`${import.meta.env.VITE_API_URL}/user-cars/${user.email}?sortOption=${sortOption}`,
+          //   {
+          //    withCredentials:true,
+          //   })
+          // .then(res=>setMycars(res.data))
+          axiosSecure.get(`/user-cars/${user.email}?sortOption=${sortOption}`)
+          .then(res => setMycars(res.data));
         
         }
       }, [sortOption, user?.email]);

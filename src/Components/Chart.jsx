@@ -15,11 +15,11 @@ const Chart = ({ cars }) => {
       setChartData(data);
     }
   }, [cars]);
-console.log(chartData)
+
   return (
     <div style={{ width: '100%', height: 400 }}>
     
-      {console.log(chartData)}
+      
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />

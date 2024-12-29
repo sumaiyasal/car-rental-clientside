@@ -8,7 +8,7 @@ const Bookingdetail = ({bcl}) => {
     // console.log(bcl);
     // console.log({_id});
     const {_id,model,car_image,date,daily_price,status}=bcl;
-    // const [ndate,setNdate]=useState("");
+    const [ndatee,setNdate]=useState("");
     // const[nid,setNid]=useState("");
     const{user}=useContext(AuthContext);
     const handlemodal=(id)=>{
