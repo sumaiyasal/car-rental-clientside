@@ -8,21 +8,28 @@ const Bookingdetail = ({bcl}) => {
     // console.log(bcl);
     // console.log({_id});
     const {_id,model,car_image,date,daily_price,status}=bcl;
-    const [ndate,setNdate]=useState("");
-    const[nid,setNid]=useState(0);
+    // const [ndate,setNdate]=useState("");
+    // const[nid,setNid]=useState("");
     const{user}=useContext(AuthContext);
     const handlemodal=(id)=>{
-        // console.log(id);
-         setNid(id);
-        //  console.log(nid);
+        
         
         document.getElementById('my_modal_1').showModal();
+        document.getElementById('cancel_nid').value = id;
        
     }
+    const handlemodal2=(id)=>{
+        
+        
+      document.getElementById('my_modal_2').showModal();
+      document.getElementById('cancel_nid').value = id;
+     
+  }
     // console.log(nid);
     const handleclick=(e)=>{
       e.preventDefault();
-       console.log(nid);
+      const nid = document.getElementById('cancel_nid').value;
+      console.log(nid);
         fetch(`${import.meta.env.VITE_API_URL}/bookingdetails/${nid}`, {
             method: 'PATCH',
             headers: {
@@ -41,16 +48,40 @@ const Bookingdetail = ({bcl}) => {
               });
               // setNid("");  
             //   document.getElementById('my_modal_1').close(); 
+            document.getElementById('my_modal_1').close();
+            document.getElementById('dbtn').disabled = true;
+
+
 
             }) 
     }
-    const handleform=(e)=>{
-        e.preventDefault();
-        // const date_posted = e.target.date.value;
-        console.log(ndate);
-     
-
-    }
+    const handleform = (e) => {
+      e.preventDefault();  
+      const ndate = document.getElementById('date').value;
+      console.log("Modified date:", ndate);
+      const nid = document.getElementById('cancel_nid').value;
+  
+      fetch(`${import.meta.env.VITE_API_URL}/bookingdetails/${nid}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ date: ndate }), // Send the modified date to the server
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Booking date updated:', data);
+          Swal.fire({
+            title: 'Success!',
+            text: 'Booking date updated successfully.',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+          });
+          document.getElementById('my_modal_2').close(); // Close the modal
+        })
+       
+    };
+  
     return (
       <>
              <tr className='hover:shadow-inner hover:shadow-orange-200'>
@@ -59,12 +90,12 @@ const Bookingdetail = ({bcl}) => {
                 <td>{date}</td>
                 <td>{daily_price}</td>
                 <td>{status}</td> 
-                <td>{_id}</td> 
                 <td><button 
         onClick={()=>handlemodal(_id)
         }
-        className='btn bg-red-500'><img src={trash} />Cancel</button><br />
-                <button onClick={()=>document.getElementById('my_modal_2').showModal()
+        className='btn bg-red-500' id='dbtn'><img src={trash} />Cancel</button><br />
+                <button onClick={()=>handlemodal2(_id)
+                
         } className='btn bg-blue-400'><img src={calender} className='w-8' />Modify Date</button>
                 </td> 
                 <dialog id="my_modal_1" className="modal">
@@ -74,6 +105,11 @@ const Bookingdetail = ({bcl}) => {
                  <div className="modal-action ">
                    <form method="dialog" className='flex items-center justify-center gap-4'>
                      {/* if there is a button in form, it will close the modal */}
+                     <input
+                type="hidden"
+                id="cancel_nid"
+                name="cancel_nid"
+              />
                      <button className='btn items-center bg-orange-500' onClick={handleclick}>Yes</button>
                      <button className="btn bg-red-500">No</button>
                    </form>
@@ -88,12 +124,16 @@ const Bookingdetail = ({bcl}) => {
                            <label className="label">
                              <span className="label-text">Booking Date</span>
                            </label>
-                           <input type="date" id="date" name="date" required  className="input input-bordered"  onChange={(e) =>
-                                         setNdate(
-                                             e.target.value
-                                         )
-                                     }/>
-                                     <button className='btn items-center bg-orange-500' onClick={()=>handleform(e)}>confirm</button>
+                           <input
+                type="hidden"
+                id="cancel_nid"
+                name="cancel_nid"
+              />
+                           <input type="date" id="date" name="date"  className="input input-bordered"  onChange={(e) => {
+                  setNdate(e.target.value); 
+                  console.log("Selected date:", e.target.value); 
+                }}/>
+                                     <button className='btn items-center bg-orange-500' onClick={handleform}>confirm</button>
                          </div>
                           
                     
