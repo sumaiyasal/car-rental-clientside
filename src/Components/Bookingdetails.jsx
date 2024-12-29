@@ -1,15 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from './Authprovide';
-import trash from"../assets/icons8-trash-24.png"
-import calender from "../assets/icons8-calendar-64.png"
-import Swal from 'sweetalert2';
+
 import Bookingdetail from './Bookingdetail';
+import Chart from './Chart';
 const Bookingdetails = () => {
     const [bookinglists,setBookinglists]=useState([]);
+    const [cars, setCars] = useState([]);
     const{user}=useContext(AuthContext);
     fetch(`${import.meta.env.VITE_API_URL}/user-bookingdetails/${user?.email}`)
     .then(res=>res.json())
     .then(data=>setBookinglists(data))
+
+    fetch(`${import.meta.env.VITE_API_URL}/cars`)
+    .then(res=>res.json())
+    .then(data=>setCars(data))
+ 
     return (
         <div>
             <div className="bg-white text-black dark:bg-gray-800 dark:text-white">
@@ -35,6 +40,12 @@ const Bookingdetails = () => {
          }  
          </tbody> 
          </table>
+         <div className='container mx-auto text-center  py-16 font-extrabol '>
+      <h1 className='text-3xl font-bold pb-8'>Booking Details</h1>
+      <Chart cars={cars} />
+ 
+    </div>
+
         </div>
        </div>
         </div>
