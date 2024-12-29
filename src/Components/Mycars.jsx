@@ -21,7 +21,7 @@ const Mycars = () => {
        
         <div className="">
             {mycars.length === 0 ? (
-                <div className="flex flex-col pt-48 items-center justify-center">
+                <div className="flex flex-col pt-48 items-center justify-center pb-24">
                 <p className="text-3xl">No cars added.</p>
                 <Link to='/addcar'><button className="btn bg-orange-500">Add a car</button></Link>
                 

@@ -6,25 +6,29 @@ const Availablecars = () => {
   const [sortOption, setSortOption] = useState('dateAddedDesc');
   const[availcars,setAvailcars]=useState([]);
   const [view, setView] = useState('grid');
+  const [searchQuery, setSearchQuery] = useState('');
   useEffect(() => {
     
-      fetch(`${import.meta.env.VITE_API_URL}/availcars?sortOption=${sortOption}`)
+      fetch(`${import.meta.env.VITE_API_URL}/availcars?sortOption=${sortOption}&search=${searchQuery}`)
       .then(res=>res.json())
       .then(data=>setAvailcars(data))
     
 
-  }, [sortOption]);
+  }, [sortOption, searchQuery]);
 const handleSortChange = (e) => {
     setSortOption(e.target.value);  
+  };
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
   const handleViewToggle = () => {
     setView(view === 'grid' ? 'list' : 'grid');
   };
     return (
      <div className="home">
-        <div className="container mx-auto">
+        <div className="container mx-auto pb-6">
         <h1 className='text-center text-4xl font-extrabold p-16 '>Available Cars</h1>
-        <div className="flex justify-between items-center p-4">
+        <div className="flex  justify-between items-center p-4">
         <div className="sorting-options text-black pb-4">
         <label className="text-white">Sort By: </label>
         <select onChange={handleSortChange} value={sortOption}>
@@ -32,7 +36,18 @@ const handleSortChange = (e) => {
           <option value="dateAddedAsc">Date (Oldest First)</option>
         </select>
       </div>
-      <div className="view-toggle">
+
+      <div className="search-bar p-4 text-black">
+          <input 
+            type="text" 
+            placeholder="Search by model" 
+            value={searchQuery} 
+            onChange={handleSearchChange} 
+            className="p-2 rounded-md"
+          />
+        </div>
+
+      <div className="view-toggle lg:flex hidden">
         <button onClick={handleViewToggle}>
           {view === 'grid' ? <img src={list} className="w-10"/> : <img src={grid} className="w-10"/>}
         </button>

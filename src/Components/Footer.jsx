@@ -2,8 +2,8 @@ import React from 'react';
 import car from "../assets/car.jpg"
 const Footer = () => {
     return (
-        <div>
-           <footer className="footer footer-center bg-black text-primary-content p-10">
+        <div className='' >
+           <footer className="footer footer-center sticky left-0 bottom-0 right-0 w-full  bg-black text-primary-content p-10">
   <aside>
   <div className="flex flex-col items-center">
       <div className="sm:hidden md:flex">

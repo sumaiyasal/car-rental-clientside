@@ -58,7 +58,7 @@ const location = useLocation();
         }
     return (
         <div className='home'>
-            <div className="w-[80%] mx-auto mb-4">
+            <div className="w-[80%] home mx-auto py-4">
             <div className="hero bg-base-200 min-h-screen">
   <div className="hero-content flex-col text-black lg:flex-row gap-24 justify-between items-center ">
     <div className="border-4">
