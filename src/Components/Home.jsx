@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import hcars from "../assets/icons8-traffic-jam-64.png"
 import price from "../assets/icons8-price-tag-50.png"
@@ -6,12 +6,20 @@ import support from "../assets/icons8-online-support-50.png"
 import booking from "../assets/icons8-booking-50.png"
 import 'animate.css';
 import Marquee from "react-fast-marquee";
+import axios from 'axios';
+import Secure from './Secure';
 const Home = () => {
     const[latestcar,setLatestcar]=useState([]);
-  fetch(`${import.meta.env.VITE_API_URL}/latestcars`)
-  .then(res=>res.json())
-  .then(data=>setLatestcar(data))
- 
+  // fetch(`${import.meta.env.VITE_API_URL}/latestcars`)
+  // .then(res=>res.json())
+  // .then(data=>setLatestcar(data))
+  const axiosSecure = Secure();
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_API_URL}/latestcars`,
+      {withCredentials:true}
+    )
+    .then(res => setLatestcar(res.data));
+  })
     return (
         <div className='home pt-4'>
            <section >
@@ -37,7 +45,7 @@ borderRadius:"80px"
 </div>
         </div>
             </section> 
-            <section className='pt-12 container mx-auto'>
+            <section className='pt-24 container mx-auto'>
                 <h1 className='text-center text-4xl font-extrabold pb-16 '> <span className='border-l-4 border-orange-500 p-2'>Why Choose Us</span></h1>
                <div className='grid lg:grid-cols-2 sm:grid-cols-1 '>
                 <div className='flex gap-4 items-start lg:border-b-2 lg:border-r-2 border-orange-500 p-8'>
@@ -70,7 +78,7 @@ borderRadius:"80px"
                 </div>
                </div>
             </section>
-            <section className='pt-12 container mx-auto'>
+            <section className='pt-24 container mx-auto'>
             <h1 className='text-center text-4xl font-extrabold pb-16 '> <span className='border-l-4 border-orange-500 p-2'>Latest Cars</span></h1>
             <div className='grid lg:grid-cols-3 grid-cols-1 gap-8 pl-4'> 
               {  latestcar.map(lcar=>

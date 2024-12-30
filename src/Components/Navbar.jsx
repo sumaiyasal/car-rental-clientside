@@ -104,7 +104,7 @@ const links=<>
           <div className="navbar-end flex gap-2">
   
              <button onClick={signout} className="btn bg-white text-orange-500 border-2 border-orange-500 hover:bg-orange-500 hover:text-white font-bold">
-            Log-Out
+            Log Out
           </button>
             </div>
          

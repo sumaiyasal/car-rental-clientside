@@ -14,7 +14,9 @@ const Bookingdetails = () => {
     // .then(res=>res.json())
     // .then(data=>setBookinglists(data))
     useEffect(() => {
-      axiosSecure.get(`/user-bookingdetails/${user?.email}`)
+      axios.get(`${import.meta.env.VITE_API_URL}/user-bookingdetails/${user?.email}`,
+        {withCredentials:true}
+      )
       .then(res => setBookinglists(res.data));
     })
    

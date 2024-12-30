@@ -1,8 +1,8 @@
-# React + Vite
+# Project Name : DriveSwiift(A car rental Service)
+# Live URL : https://car-rental-service-3a6ae.web.app
+# The main purpose of this website is to simplify the process of renting a vehicle by offering users easy access to information, seamless booking systems, and flexible options that meet their transportation needs.
+# Key Features : Add Car For,Available Car,Book a Car,Cancel a booking,Modify Booking time,See booking list
+# npm Packages : recharts,animate.css,marquee,firebase,express,mongodb,cors,axios,dotenv etc.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

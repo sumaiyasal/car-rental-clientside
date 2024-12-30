@@ -19,7 +19,9 @@ const Mycars = () => {
           //    withCredentials:true,
           //   })
           // .then(res=>setMycars(res.data))
-          axiosSecure.get(`/user-cars/${user.email}?sortOption=${sortOption}`)
+          axios.get(`${import.meta.env.VITE_API_URL}/user-cars/${user.email}?sortOption=${sortOption}`,
+            {withCredentials:true}
+          )
           .then(res => setMycars(res.data));
         
         }

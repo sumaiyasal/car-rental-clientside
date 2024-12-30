@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Authprovide";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 const Signup = () => {
   const { createUser, setUser,user, updateUserProfile,loginwithgoogle } = useContext(AuthContext);
   const [error, setError] = useState({});  
@@ -35,6 +36,14 @@ const Signup = () => {
               
               if(data.insertedId){
                   console.log('user created in db')
+                    Swal.fire({
+                      title: 'Success!',
+                      text: 'Successfully Signed In',
+                      icon: 'success',
+                      confirmButtonText: 'Ok'
+                  });
+  
+               
               }
           })
 
@@ -44,20 +53,24 @@ const Signup = () => {
             setError({ ...error, login: errorr.code });
           });
 }
+
   const handleSubmit=(e)=>{
         e.preventDefault();
         // console.log(user);
+      
+
         const form = new FormData(e.target);
     const displayName= form.get("name");
-    if (displayName
-      .length < 5) {
-      setError({ ...error, name: "name should be more then 5 character" });
+   
+    if (displayName.length < 5) {
+      setError({ ...error, displayName: "name should be more then 5 character"});
       return;
     }
+    console.log(error.displayName);
     const email = form.get("email");
     const photo = form.get("photo");
     const password = form.get("password");
-  //  console.log(email);
+   
     
     if (password.length < 6) {
       setError({ ...error, password: "Password should be 6 characters or longer" });
@@ -89,6 +102,15 @@ const Signup = () => {
               
               if(data.insertedId){
                   console.log('user created in db')
+               
+                    Swal.fire({
+                      title: 'Success!',
+                      text: 'Successfully Signed In',
+                      icon: 'success',
+                      confirmButtonText: 'Ok'
+                  });
+  
+               
               }
           })
 
