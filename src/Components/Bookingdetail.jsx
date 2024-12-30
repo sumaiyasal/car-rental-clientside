@@ -11,11 +11,13 @@ const Bookingdetail = ({bcl}) => {
     const [ndatee,setNdate]=useState("");
     // const[nid,setNid]=useState("");
     const{user}=useContext(AuthContext);
-    const handlemodal=(id)=>{
+    const handlemodal=(id,model)=>{
         
         
         document.getElementById('my_modal_1').showModal();
         document.getElementById('cancel_nid').value = id;
+        document.getElementById('cancel_name').value = model;
+
        
     }
     const handlemodal2=(id)=>{
@@ -29,13 +31,14 @@ const Bookingdetail = ({bcl}) => {
     const handleclick=(e)=>{
       e.preventDefault();
       const nid = document.getElementById('cancel_nid').value;
-      console.log(nid);
+      const nmodel=document.getElementById('cancel_name').value;
+      // console.log(nid);
         fetch(`${import.meta.env.VITE_API_URL}/bookingdetails/${nid}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ status: "Canceled" })
+            body: JSON.stringify({ status: "Canceled",model:nmodel })
         })
             .then(res => res.json())
             .then(data => {
@@ -91,7 +94,7 @@ const Bookingdetail = ({bcl}) => {
                 <td>{daily_price}</td>
                 <td>{status}</td> 
                 <td><button 
-        onClick={()=>handlemodal(_id)
+        onClick={()=>handlemodal(_id,model)
         }
         className='btn bg-red-500' id='dbtn'><img src={trash} />Cancel</button><br />
                 <button onClick={()=>handlemodal2(_id)
@@ -109,6 +112,13 @@ const Bookingdetail = ({bcl}) => {
                 type="hidden"
                 id="cancel_nid"
                 name="cancel_nid"
+                className="cancel_name"
+              />
+                   <input
+                type="hidden"
+                id="cancel_name"
+                name="cancel_name"
+                
               />
                      <button className='btn items-center bg-orange-500' onClick={handleclick}>Yes</button>
                      <button className="btn bg-red-500">No</button>

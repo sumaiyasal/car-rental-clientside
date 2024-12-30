@@ -12,7 +12,8 @@ const Navbar = () => {
   
  
 const links=<>
-<li><NavLink to='/'style={({ isActive }) => ({
+ {user && user?.email ? <>
+  <li><NavLink to='/'style={({ isActive }) => ({
       backgroundColor: isActive ? '#ff5733' : '#e2e6ea', 
       color: isActive ? 'white' : '#333', 
       marginRight:'8px',
@@ -39,6 +40,24 @@ const links=<>
       color: isActive ? 'white' : '#333', 
       marginRight:'8px',
     })}>My Bookings</NavLink></li>
+ </>:<>
+ <li><NavLink to='/'style={({ isActive }) => ({
+      backgroundColor: isActive ? '#ff5733' : '#e2e6ea', 
+      color: isActive ? 'white' : '#333', 
+      marginRight:'8px',
+     
+    })}  >Home</NavLink></li>
+<li><NavLink to='/availablecars'style={({ isActive }) => ({
+      backgroundColor: isActive ? '#ff5733' : '#e2e6ea', 
+      color: isActive ? 'white' : '#333', 
+      marginRight:'8px',
+     
+    })}>Available Cars</NavLink></li>
+ 
+
+
+ </>}
+
 
 </>
     
