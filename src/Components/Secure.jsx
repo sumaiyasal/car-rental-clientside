@@ -5,7 +5,7 @@ import axios from 'axios';
 import { AuthContext } from './Authprovide';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://car-rental-service-68odqam3g-sumaiya-s-projects-efb56ee6.vercel.app',
     withCredentials: true
 });
 
