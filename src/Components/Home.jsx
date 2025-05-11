@@ -23,9 +23,9 @@ const Home = () => {
     return (
         <div className='home pt-4'>
            <section >
-           <div>
+           <div > 
            <div
-  className="hero min-h-screen container mx-auto "
+  className="hero min-h-[400px] container mx-auto "
   style={{
     backgroundImage: "url(https://images.pexels.com/photos/909907/pexels-photo-909907.jpeg?auto=compress&cs=tinysrgb&w=600)",
     backgroundSize:"cover",
@@ -87,7 +87,7 @@ borderRadius:"80px"
     <figure>
       <img
         src={lcar.car_image} className="w-[300px] h-[300px] pt-10 "
-        alt="Shoes" />
+        alt="Car" />
     </figure>
     <div className="card-body pl-16">
       <h2 className="card-title">{lcar.model}</h2>
