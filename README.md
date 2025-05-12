@@ -1,11 +1,11 @@
-# 🚗 **Car Rental Service - Available Cars**
+# 🚗 **DriveSwiift - Car Rental Service**
 
 Welcome to the **Car Rental Service**! This web application lets you browse and view a variety of cars available for rent. It's easy to explore and find the perfect vehicle for your journey.
 
 ## 🌐 Live Demo
 
 Experience the website live:  
-[Car Rental Service - Available Cars](https://car-rental-service-3a6ae.web.app/availablecars)
+[Car Rental Service - Available Cars](https://car-rental-service-3a6ae.web.app/)
 
 ---
 
