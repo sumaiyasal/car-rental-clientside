@@ -8,6 +8,7 @@ import 'animate.css';
 import Marquee from "react-fast-marquee";
 import axios from 'axios';
 import Secure from './Secure';
+import car2 from "../assets/car-headlight-buildings-reflecting-headlight-car.jpg"
 const Home = () => {
     const[latestcar,setLatestcar]=useState([]);
   // fetch(`${import.meta.env.VITE_API_URL}/latestcars`)
@@ -159,6 +160,62 @@ borderRadius:"80px"
             
             
             </section>
+            <section className='py-10 container mx-auto'>
+            <h1 className='text-center  text-4xl font-extrabold pb-24 pt-10'><span className='border-l-4 border-orange-500 p-2'>Contact Us</span></h1>
+            <div
+  className="hero min-h-[400px] container mx-auto "
+  style={{
+    backgroundImage: `url(${car2})`,
+    backgroundSize:"cover",
+backgroundPosition: "center",
+backgroundRepeat: "no-repeat",
+borderRadius:"80px"
+   
+  }}>
+  <div className="hero-overlay bg-opacity-60 rounded-[80px]"></div>
+  <div className=" text-neutral-content text-center w-3/5">
+    <div className="max-w-full   flex  items-center justify-between ">
+      <div className='text-left'>
+      <div>
+        <h1 className='text-lg font-semibold text-orange-500'>Adress</h1>
+        <h2>2126 Nasirabad,Chattogram</h2>
+      </div>
+      <hr  className='my-4'/>
+      <div>
+        <h1  className='text-lg font-semibold text-orange-500'>Phone</h1>
+        <h2>01356172945</h2>
+      </div>
+      <hr className='my-4' />
+      <div>
+        <h1  className='text-lg font-semibold text-orange-500'>Email</h1>
+        <h2>driveswift@gmail.com</h2>
+      </div>
+      </div>
+      <div className='bg-white/15 p-10'>
+     <h1 className='font-bold pb-4  text-lg text-white'>Send Messsage</h1>
+<label className="input input-bordered flex items-center gap-2 mb-2">
+ 
+  <input type="text" className="grow text-black" placeholder="Email" />
+</label>
+<label className="input input-bordered flex items-center gap-2 mb-2">
+  <input type="text" className="grow text-black" placeholder="Username" />
+</label>
+
+<textarea className="textarea textarea-bordered grow w-full text-black" placeholder="Message"></textarea>
+<button className='btn bg-orange-500 hover:bg-orange-600 text-white font-bold' >Send</button>
+
+      </div>
+      {/* <h1 className="mb-5 text-5xl font-bold">Drive Your Dreams Today!</h1>
+      <Link to='/availablecars'><button className="btn bg-orange-500 hover:bg-orange-600 text-white font-bold ">View Available Cars</button></Link> */}
+      
+    </div>
+  </div>
+</div>
+           
+            
+            
+            </section>
+
             <section className='py-12 container mx-auto '>
             <h1 className='text-center text-4xl font-extrabold pb-28 '>
             <span className='border-l-4 border-orange-500 p-2'>Customers Review</span></h1>
