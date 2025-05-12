@@ -104,8 +104,8 @@ borderRadius:"80px"
               )}
             </div>
             </section>
-            <section className='py-12 container mx-auto'>
-            <h1 className='text-center  text-4xl font-extrabold pb-32 pt-20'><span className='border-l-4 border-orange-500 p-2'>Special Offers</span></h1>
+            <section className='py-10 container mx-auto'>
+            <h1 className='text-center  text-4xl font-extrabold pb-32 pt-10'><span className='border-l-4 border-orange-500 p-2'>Special Offers</span></h1>
 
             <div className='grid lg:grid-cols-3 grid-cols-1 pl-4 gap-4'>
             <div className="card bg-black w-96  rounded-xl transition ease-in-out   hover:animate-bounce ">

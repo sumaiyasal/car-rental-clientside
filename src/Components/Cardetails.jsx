@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from './Authprovide';
 import { useLocation, useNavigate } from "react-router-dom";
-
+import Swal from 'sweetalert2';
 
 
 
@@ -50,11 +50,18 @@ const location = useLocation();
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.insertedId) {
-                        console.log('successfully added');
+                  console.log(data);
+                   
+                        Swal.fire({
+                          title: 'Success!',
+                          text: 'Successfully Booked ',
+                          icon: 'success',
+                          confirmButtonText: 'Ok'
+                      });
                       
                         // e.target.reset();
-                    }
+                
+                   
                     navigate(location?.state ? location.stats : "/");
                 })
         }
