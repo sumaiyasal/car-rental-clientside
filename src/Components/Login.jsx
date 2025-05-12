@@ -3,7 +3,8 @@ import { Link} from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "./Authprovide";
 import Swal from 'sweetalert2';
-
+import Lottie from "lottie-react";
+import loginLottieData from"../assets/Animation - 1747042517480.json"
 const Login = () => {
   const {signInUser,setUser,loginwithgoogle,setEmail } = useContext(AuthContext);
   const [email, setEmailInput] = useState('');
@@ -68,9 +69,9 @@ const Login = () => {
     }
     return (
      <div className="bg-[#202020]">
-         <div className="min-h-screen flex justify-center items-center">
+         <div className="min-h-full flex justify-between gap-10 items-center px-20 py-10">
         <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
-          <h2 className="text-4xl py-16 font-extrabold text-center">
+          <h2 className="text-2xl font-semibold text-center">
             Login your account
           </h2>
           <form onSubmit={handleSubmit} className="card-body border-2 p-4 rounded-lg my-4">
@@ -119,6 +120,7 @@ const Login = () => {
             </Link>
           </p>
         </div>
+        <Lottie animationData={loginLottieData} className="w-2/5"></Lottie>
        
       </div>
       
