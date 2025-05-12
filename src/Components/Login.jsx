@@ -69,7 +69,7 @@ const Login = () => {
     }
     return (
      <div className="bg-[#202020]">
-         <div className="min-h-full flex justify-between gap-10 items-center px-20 py-10">
+         <div className="min-h-full flex justify-between gap-10 items-center lg:px-20 px-10 py-10">
         <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
           <h2 className="text-2xl font-semibold text-center">
             Login your account
