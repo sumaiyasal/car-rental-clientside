@@ -32,7 +32,7 @@ const Bookingdetails = () => {
             <div className="bg-white text-black dark:bg-gray-800 dark:text-white">
          <div className="container mx-auto mb-5 min-h-screen">
          <h1 className="text-center text-4xl py-16 font-extrabold">My BookingList</h1>
-         <table className="table table-zebra text-black">
+         <table className="lg:table   lg:table-zebra text-black">
 
     <thead className="text-black">
       <tr className='text-lg bg-orange-200'>

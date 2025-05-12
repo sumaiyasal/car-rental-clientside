@@ -96,10 +96,10 @@ const Bookingdetail = ({bcl}) => {
                 <td><button 
         onClick={()=>handlemodal(_id,model)
         }
-        className='btn bg-red-500' id='dbtn'><img src={trash} />Cancel</button><br />
+        className='btn bg-red-500' id='dbtn'><img src={trash} className='lg:w-8 w-4'/>Cancel</button><br />
                 <button onClick={()=>handlemodal2(_id)
                 
-        } className='btn bg-blue-400'><img src={calender} className='w-8' />Modify Date</button>
+        } className='btn   bg-blue-400'><img src={calender} className='lg:w-8 w-3' />Modify Date</button>
                 </td> 
                 <dialog id="my_modal_1" className="modal">
                <div className="modal-box">
