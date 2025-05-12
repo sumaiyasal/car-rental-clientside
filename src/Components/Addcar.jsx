@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { AuthContext } from "./Authprovide";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import cpic from "../assets/3d-car-vibrant-city-night.jpg";
 
 const Addcar = () => {
     const {user} = useContext(AuthContext);
@@ -66,16 +66,25 @@ const Addcar = () => {
     }
     return (
        <div className="bcolor pb-10">
-         <div className="container mx-auto ">
+         <div className="container mx-auto">
            <h1 className="text-center text-3xl p-8  font-extrabold text-white ">Add Car</h1> 
-           <div className="min-h-screen flex justify-center items-center">
-        <div className="card bg-base-100 w-full max-w-lg shrink-0  px-5 rounded-lg">
+           <div className="min-h-screen flex justify-center items-center"
+           style={{
+            backgroundImage: `url(${cpic})`,
+            backgroundSize:"cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        borderRadius:"80px"
+           
+          }}>
+        <div className="card bg-base-100 w-full max-w-lg shrink-0  px-5 rounded-lg
+        bg-white/10 backdrop-blur-md shadow-lg ">
          
-          <form onSubmit={handleformsubmit} className="card-body border-2 p-4 rounded-lg my-4">
+          <form onSubmit={handleformsubmit} className="card-body border-2 p-4 rounded-lg my-4  ">
            
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Car Model</span>
+                <span className="label-text text-white">Car Model</span>
               </label>
               <input
               name="model"
@@ -88,7 +97,7 @@ const Addcar = () => {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Daily Rental Price</span>
+                <span className="label-text text-white">Daily Rental Price</span>
               </label>
               <input
               name="daily_price"
@@ -101,7 +110,7 @@ const Addcar = () => {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Availability</span>
+                <span className="label-text text-white">Availability</span>
               </label>
               <input
               name="availability"
@@ -114,7 +123,7 @@ const Addcar = () => {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Registration No.</span>
+                <span className="label-text text-white">Registration No.</span>
               </label>
               <input
               name="rnumber"
@@ -127,38 +136,38 @@ const Addcar = () => {
     
             <div className="form-control text-black">
             <label className="label">
-                <span className="label-text">Features</span>
+                <span className="label-text text-white">Features</span>
               </label>
               <label class="label cursor-pointer">
-     <span class="label-text">GPS</span>
+     <span class="label-text text-white">GPS</span>
      <input type="checkbox" id="gps" name="features" value="GPS"/> 
   </label>
 
   <label class="label cursor-pointer">
-     <span class="label-text">Air Conditioning</span>
+     <span class="label-text text-white">Air Conditioning</span>
      <input type="checkbox" id="ac" name="features" value="Air Conditioning"/>
   </label>
   <label class="label cursor-pointer">
-     <span class="label-text">Bluetooth</span>
+     <span class="label-text text-white">Bluetooth</span>
      <input type="checkbox" id="bluetooth" name="features" value="Bluetooth"/> 
   </label>
   <label class="label cursor-pointer">
-     <span class="label-text">Automatic Transmission </span>
+     <span class="label-text text-white">Automatic Transmission </span>
      <input type="checkbox" id="automatic" name="features" value="Automatic Transmission"/>
   </label>
   <label class="label cursor-pointer">
-     <span class="label-text">Heated Seats</span>
+     <span class="label-text text-white">Heated Seats</span>
      <input type="checkbox" id="heatedSeats" name="features" value="Heated Seats"/> 
   </label>
   <label class="label cursor-pointer">
-     <span class="label-text">Sunroof</span>
+     <span class="label-text text-white">Sunroof</span>
      <input type="checkbox" id="sunroof" name="features" value="Sunroof"/>
   </label>
             </div>
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Description</span>
+                <span className="label-text text-white">Description</span>
               </label>
               <textarea
               name="description"
@@ -169,7 +178,7 @@ const Addcar = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Booking Count</span>
+                <span className="label-text text-white">Booking Count</span>
               </label>
               <input
               name="bcount"
@@ -183,7 +192,7 @@ const Addcar = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Car Image</span>
+                <span className="label-text text-white">Car Image</span>
               </label>
               <input
               type="text"
@@ -195,7 +204,7 @@ const Addcar = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Location</span>
+                <span className="label-text text-white">Location</span>
               </label>
               <input
               name="location"
@@ -207,13 +216,13 @@ const Addcar = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Booking Date</span>
+                <span className="label-text text-white">Booking Date</span>
               </label>
               <input type="date" id="date" name="date" required  className="input input-bordered"/>
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Booking Status</span>
+                <span className="label-text text-white">Booking Status</span>
               </label>
               <input type="status" id="status" name="status" value="Pending" className="input input-bordered"/>
             </div>
@@ -225,7 +234,7 @@ const Addcar = () => {
 
             <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text text-white">Email</span>
             </label>
             <input
               name="email"
