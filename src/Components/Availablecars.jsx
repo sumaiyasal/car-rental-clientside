@@ -54,16 +54,16 @@ const handleSortChange = (e) => {
       </div>
         </div>
       
-          <div className={view=='grid'?'grid lg:grid-cols-3 grid-cols-1 gap-8 pl-4':'grid grid-cols-1 gap-8 pl-4'}> 
+          <div className={view=='grid'?'grid lg:grid-cols-4 grid-cols-1 gap-8 pl-4':'grid grid-cols-1 gap-8 pl-4'}> 
               {  availcars.map(lcar=>
                   <div className=''>
-                     <div className="card bg-black w-96  rounded-xl ">
-    <figure>
+                     <div className="card bg-black lg:w-72 w-96  rounded-xl ">
+    <figure >
       <img
-        src={lcar.car_image} className="w-[300px] h-[300px] pt-10 "
+        src={lcar.car_image} className="lg:w-[250px] lg:h-[200px] w-[300px] h-[300px] pt-10  "
         alt="Shoes" />
     </figure>
-    <div className="card-body pl-16">
+    <div className="card-body lg:pl-7 pl-10">
       <h2 className="card-title">{lcar.model}</h2>
      
       <p>Price : {lcar.daily_price}</p>

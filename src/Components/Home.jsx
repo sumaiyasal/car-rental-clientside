@@ -80,16 +80,16 @@ borderRadius:"80px"
             </section>
             <section className='pt-24 container mx-auto'>
             <h1 className='text-center text-4xl font-extrabold pb-16 '> <span className='border-l-4 border-orange-500 p-2'>Latest Cars</span></h1>
-            <div className='grid lg:grid-cols-3 grid-cols-1 gap-8 pl-4'> 
+            <div className='grid lg:grid-cols-5 grid-cols-1 pl-4  gap-6 '> 
               {  latestcar.map(lcar=>
                   <div className=''>
-                     <div className="card bg-black w-96  rounded-xl transition ease-in-out  hover:scale-105">
+                     <div className="card bg-black lg:w-60 w-96 rounded-xl transition ease-in-out  hover:scale-105">
     <figure>
       <img
-        src={lcar.car_image} className="w-[300px] h-[300px] pt-10 "
+        src={lcar.car_image} className="w-[250px]  h-[250px] lg:w-[200px]  lg:h-[200px]  pt-10 "
         alt="Car" />
     </figure>
-    <div className="card-body pl-16">
+    <div className="card-body lg:pl-7 pl-16">
       <h2 className="card-title">{lcar.model}</h2>
      
       <p>Price : {lcar.daily_price}</p>
