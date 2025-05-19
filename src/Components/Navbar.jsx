@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
-import car from "../assets/car3.png";
+import car from "../assets/car4.png";
 import { AuthContext } from "./Authprovide";
 import { div } from "framer-motion/client";
 
@@ -158,7 +158,7 @@ const Navbar = () => {
 
           <div className="flex items-center">
             <div className="md:hidden  lg:flex ">
-              <img src={car} alt="" className="w-24" />
+              <img src={car} alt="" className="w-10" />
             </div>
             <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r dark:from-orange-200 dark:to-orange-500 from-orange-400 to-orange-600 bg-clip-text text-transparent">
               DriveSwiift
