@@ -1,86 +1,105 @@
 import { useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import list from "../assets/list.png"
-import grid from "../assets/icons8-grid-50.png"
+import { Link } from "react-router-dom";
+import list from "../assets/list.png";
+import grid from "../assets/icons8-grid-50.png";
+
 const Availablecars = () => {
-  const [sortOption, setSortOption] = useState('dateAddedDesc');
-  const[availcars,setAvailcars]=useState([]);
-  const [view, setView] = useState('grid');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [sortOption, setSortOption] = useState("dateAddedDesc");
+  const [availcars, setAvailcars] = useState([]);
+  const [view, setView] = useState("grid");
+  const [searchQuery, setSearchQuery] = useState("");
+
   useEffect(() => {
-    
-      fetch(`${import.meta.env.VITE_API_URL}/availcars?sortOption=${sortOption}&search=${searchQuery}`)
-      .then(res=>res.json())
-      .then(data=>setAvailcars(data))
-    
-
+    fetch(
+      `${import.meta.env.VITE_API_URL}/availcars?sortOption=${sortOption}&search=${searchQuery}`
+    )
+      .then((res) => res.json())
+      .then((data) => setAvailcars(data));
   }, [sortOption, searchQuery]);
-const handleSortChange = (e) => {
-    setSortOption(e.target.value);  
-  };
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-  const handleViewToggle = () => {
-    setView(view === 'grid' ? 'list' : 'grid');
-  };
-    return (
-     <div className="dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020]">
-        <div className="container mx-auto pb-6 ">
-        <h1 className='text-center text-4xl font-extrabold p-16 '>Available Cars</h1>
-        <div className="flex  justify-between items-center p-4 pb-16">
-        <div className="sorting-options text-black pb-4">
-        <label className="dark:text-white text-black font-semibold">Sort By: </label>
-        <select onChange={handleSortChange} value={sortOption} className="bg-white shadow-lg">
-          <option value="dateAddedDesc">Date (Newest First)</option>
-          <option value="dateAddedAsc">Date (Oldest First)</option>
-        </select>
-      </div>
 
-      <div className="search-bar p-4 text-black ">
-          <input 
-            type="text" 
-            placeholder="Search by model" 
-            value={searchQuery} 
-            onChange={handleSearchChange} 
-            className="p-2 rounded-md bg-white shadow-lg"
-          />
+  const handleSortChange = (e) => setSortOption(e.target.value);
+  const handleSearchChange = (e) => setSearchQuery(e.target.value);
+  const handleViewToggle = () => setView(view === "grid" ? "list" : "grid");
+
+  return (
+    <div className="dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020] min-h-screen">
+      <div className="container mx-auto px-4 pb-16">
+        {/* Heading */}
+        <h1 className="text-center text-4xl font-bold py-16">Available Cars</h1>
+
+        {/* Filters & Toggle */}
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-12">
+          {/* Sort Dropdown */}
+          <div className="text-black dark:text-white">
+            <label className="font-semibold mr-2">Sort By:</label>
+            <select
+              value={sortOption}
+              onChange={handleSortChange}
+              className="bg-white dark:bg-[#333] dark:text-white p-2 rounded-md shadow"
+            >
+              <option value="dateAddedDesc">Date (Newest First)</option>
+              <option value="dateAddedAsc">Date (Oldest First)</option>
+            </select>
+          </div>
+
+          {/* Search Bar */}
+          <div className="w-full lg:w-1/3">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              placeholder="Search by model"
+              className="w-full p-3 rounded-md bg-white dark:bg-[#333] dark:text-white shadow"
+            />
+          </div>
+
+          {/* Toggle View */}
+          <div className="hidden lg:block">
+            <button onClick={handleViewToggle}>
+              <img
+                src={view === "grid" ? list : grid}
+                alt="Toggle View"
+                className="w-8"
+              />
+            </button>
+          </div>
         </div>
 
-      <div className="view-toggle lg:flex hidden">
-        <button onClick={handleViewToggle}>
-          {view === 'grid' ? <img src={list} className="w-10"/> : <img src={grid} className="w-10"/>}
-        </button>
-      </div>
-        </div>
-      
-          <div className={view=='grid'?'grid lg:grid-cols-4 grid-cols-1 gap-8 pl-4':'grid grid-cols-1 gap-8 pl-4 '}> 
-              {  availcars.map(lcar=>
-                  <div className=''>
-                     <div className="card bg-black text-white lg:w-72 w-96  rounded-xl ">
-    <figure >
-      <img
-        src={lcar.car_image} className="lg:w-[250px] lg:h-[200px] w-[300px] h-[300px] pt-10  "
-        alt="Shoes" />
-    </figure>
-    <div className="card-body lg:pl-7 pl-10">
-      <h2 className="card-title">{lcar.model}</h2>
-     
-      <p>Price : {lcar.daily_price}</p>
-      <p>Availability : {lcar.availability}</p>
-      <p>Booking_count : {lcar.booking_count}</p>
-      <p>Posted on :{lcar.date_posted}</p>
-       <Link to={`/cardetails/${lcar._id}`}><button className="btn bg-orange-500 hover:bg-orange-600 text-white">Book Now</button></Link>
-    </div>
-  </div> 
-                  </div>
-
-              )}
+        {/* Cars */}
+        <div
+          className={
+            view === "grid"
+              ? "grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              : "grid gap-6 grid-cols-1"
+          }
+        >
+          {availcars.map((car) => (
+            <div key={car._id} className="bg-white dark:bg-black rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
+              <div className="h-[220px] bg-white flex justify-center items-center rounded-t-2xl overflow-hidden">
+                <img
+                  src={car.car_image}
+                  alt={car.model}
+                  className="object-contain h-full w-full p-4"
+                />
+              </div>
+              <div className="p-6">
+                <h2 className="text-xl font-bold mb-2">{car.model}</h2>
+                <p><span className="font-semibold">Price:</span> {car.daily_price}</p>
+                <p><span className="font-semibold">Availability:</span> {car.availability}</p>
+                <p><span className="font-semibold">Bookings:</span> {car.booking_count}</p>
+                <p><span className="font-semibold">Posted:</span> {car.date_posted}</p>
+                <Link to={`/cardetails/${car._id}`}>
+                  <button className="mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded-lg transition">
+                    Book Now
+                  </button>
+                </Link>
+              </div>
             </div>
+          ))}
         </div>
-     </div>
-      
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Availablecars;
