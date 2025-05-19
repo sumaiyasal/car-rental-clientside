@@ -105,14 +105,14 @@ const Signup = () => {
       <div className="min-h-full flex flex-1 justify-between items-center lg:px-20 px-10 py-10">
         <Lottie animationData={registerLottieData} className="w-2/5 hidden lg:block" />
         
-        <div className="card bg-base-100 w-full max-w-lg p-10">
-          <h2 className="text-2xl font-semibold text-center mb-4">Register your account</h2>
+        <div className="card bg-white shadow-lg  w-full max-w-lg p-10">
+          <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4">Register your account</h2>
           
           <form onSubmit={handleSubmit} className="card-body border p-4 rounded-lg space-y-4">
             {/* Name */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text text-gray-600">Name</span>
               </label>
               <input
                 name="name"
@@ -129,7 +129,7 @@ const Signup = () => {
             {/* Photo */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Photo URL</span>
+                <span className="label-text text-gray-600">Photo URL</span>
               </label>
               <input
                 type="text"
@@ -143,7 +143,7 @@ const Signup = () => {
             {/* Email */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-gray-600">Email</span>
               </label>
               <input
                 name="email"
@@ -157,7 +157,7 @@ const Signup = () => {
             {/* Password */}
             <div className="form-control relative">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-gray-600">Password</span>
               </label>
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -196,7 +196,7 @@ const Signup = () => {
           </form>
 
           {/* Login redirect */}
-          <p className="text-center font-semibold mt-4">
+          <p className="text-center font-semibold mt-4 text-gray-600">
             Already have an account?{" "}
             <Link className="text-red-500" to="/login">
               Login
