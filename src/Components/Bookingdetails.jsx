@@ -28,7 +28,7 @@ const Bookingdetails = () => {
   }, []);
 
   return (
-    <div className="dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020] min-h-screen">
+    <div className="pt-12 dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020] min-h-screen">
       <div className="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8 pb-10">
         <h1 className="text-center text-xl md:text-3xl py-10 font-extrabold">My Booking List</h1>
 

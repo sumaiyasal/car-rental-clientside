@@ -26,7 +26,7 @@ const Mycars = () => {
   };
 
   return (
-    <div className="dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020] min-h-screen px-4 py-8">
+    <div className="dark:bg-[#202020] dark:text-white pt-24 bg-slate-100 text-[#202020] min-h-screen px-4 py-8">
       {mycars.length === 0 ? (
         <div className="flex flex-col pt-32 items-center justify-center pb-24">
           <p className="text-2xl md:text-3xl mb-4">No cars added.</p>

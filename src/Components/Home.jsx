@@ -23,7 +23,7 @@ const Home = () => {
   })
     return (
         <div className='dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020] pt-4'>
-        <section className=" px-4 ">
+        <section className="pt-16 px-4 ">
   <div className="container mx-auto">
     <div
       className="hero min-h-[400px] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] overflow-hidden"

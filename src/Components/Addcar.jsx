@@ -65,7 +65,7 @@ const Addcar = () => {
   };
 
   return (
-    <div className="dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020] min-h-screen pb-10 flex flex-col items-center px-4">
+    <div className="dark:bg-[#202020] dark:text-white pt-12 bg-slate-100 text-[#202020] min-h-screen pb-10 flex flex-col items-center px-4">
       <h1 className="text-3xl font-extrabold pt-8 pb-6 text-center">Add Car</h1>
 
       <div

@@ -22,7 +22,7 @@ const Availablecars = () => {
   const handleViewToggle = () => setView(view === "grid" ? "list" : "grid");
 
   return (
-    <div className="dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020] min-h-screen">
+    <div className="dark:bg-[#202020] pt-16 dark:text-white bg-slate-100 text-[#202020] min-h-screen">
       <div className="container mx-auto px-4 pb-16">
         {/* Heading */}
         <h1 className="text-center text-4xl font-bold py-16">Available Cars</h1>
