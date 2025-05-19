@@ -11,7 +11,25 @@ const AuthProvider = ({ children }) => {
     const [email, setEmail] = useState('');
     const[userinfor,setUserinfor]=useState(null);
 
-   
+   const [isDarkMode, setIsDarkMode] = useState(false);
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          setIsDarkMode(true);
+        }
+      }, []);
+      const toggleTheme = () => {
+        setIsDarkMode((prev) => !prev);
+      };
+      useEffect(() => {
+        if (isDarkMode) {
+          document.body.classList.add("dark");
+          localStorage.setItem("theme", "dark"); // Persist in localStorage
+        } else {
+          document.body.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      }, [isDarkMode]);
   
   
 
@@ -86,6 +104,7 @@ const loginwithgoogle = () => {
         setUser,
         signout,
         userinfor,setUserinfor,
+        isDarkMode, toggleTheme,
 
     }
 

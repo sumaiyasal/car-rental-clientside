@@ -22,7 +22,7 @@ const Home = () => {
     .then(res => setLatestcar(res.data));
   })
     return (
-        <div className='home pt-4'>
+        <div className='dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020] pt-4'>
            <section >
            <div > 
            <div
@@ -39,7 +39,7 @@ borderRadius:"80px"
   <div className="hero-content text-neutral-content text-center">
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Drive Your Dreams Today!</h1>
-      <Link to='/availablecars'><button className="btn bg-orange-500 hover:bg-orange-600 text-white font-bold ">View Available Cars</button></Link>
+      <Link to='/availablecars'><button className="btn bg-orange-500 hover:bg-orange-600 border-none text-white font-bold ">View Available Cars</button></Link>
       
     </div>
   </div>
@@ -53,41 +53,41 @@ borderRadius:"80px"
                     <img src={hcars} alt=""  className='w-10 h-10 '/>
                     <div>
                     <h3 class="text-xl font-semibold">Wide Variety of Cars</h3>
-                    <p class="text-gray-400"> Whether you're looking for an affordable city car, a family-friendly SUV, or a luxurious sports car for a special occasion, we have a wide range of vehicles to choose from. Our fleet includes everything from compact, fuel-efficient cars to high-end, premium models, ensuring you can find the perfect vehicle for any need or budget.</p> 
+                    <p class="dark:text-gray-400 text-gray-500"> Whether you're looking for an affordable city car, a family-friendly SUV, or a luxurious sports car for a special occasion, we have a wide range of vehicles to choose from. Our fleet includes everything from compact, fuel-efficient cars to high-end, premium models, ensuring you can find the perfect vehicle for any need or budget.</p> 
                     </div>
                 </div>
                 <div className='flex gap-4 items-start lg:border-b-2 border-orange-500 p-8'>
                     <img src={price} alt=""  className='w-10 h-10 '/>
                     <div>
                     <h3 class="text-xl font-semibold">Affordable Prices</h3>
-                    <p class="text-gray-400">We offer competitive and transparent pricing with no hidden fees. Our daily rental rates are designed to give you the best value for your money, so you can enjoy a high-quality ride without breaking the bank. Whether you're renting for a day, a week, or longer, you can count on us for affordable and flexible pricing options.</p> 
+                    <p class="dark:text-gray-400 text-gray-500">We offer competitive and transparent pricing with no hidden fees. Our daily rental rates are designed to give you the best value for your money, so you can enjoy a high-quality ride without breaking the bank. Whether you're renting for a day, a week, or longer, you can count on us for affordable and flexible pricing options.</p> 
                     </div>
                 </div>
                 <div className='flex gap-4 items-start p-8 lg:border-r-2 border-orange-500'>
                     <img src={booking} alt=""  className='w-10 h-10 '/>
                     <div>
                     <h3 class="text-xl font-semibold">Easy Booking Process</h3>
-                    <p class="text-gray-400">Booking your rental car has never been easier. With just a few clicks, you can choose the car you want, select your rental period, and reserve it in real-time. Our simple and user-friendly online platform ensures a fast and hassle-free experience, allowing you to focus on your travels, not the details.</p> 
+                    <p class="dark:text-gray-400 text-gray-500">Booking your rental car has never been easier. With just a few clicks, you can choose the car you want, select your rental period, and reserve it in real-time. Our simple and user-friendly online platform ensures a fast and hassle-free experience, allowing you to focus on your travels, not the details.</p> 
                     </div>
                 </div>
                 <div className='flex gap-4 items-start p-8 '>
                     <img src={support} alt=""  className='w-10 h-10 '/>
                     <div>
                     <h3 class="text-xl font-semibold">Customer Support</h3>
-                    <p class="text-gray-400">We value your satisfaction and are here to assist you 24/7. Whether you have a question about our cars, need help with booking, or require roadside assistance during your rental, our dedicated customer support team is always ready to help. With us, you can feel confident knowing that expert support is just a call or click away.</p> 
+                    <p class="dark:text-gray-400 text-gray-500">We value your satisfaction and are here to assist you 24/7. Whether you have a question about our cars, need help with booking, or require roadside assistance during your rental, our dedicated customer support team is always ready to help. With us, you can feel confident knowing that expert support is just a call or click away.</p> 
                     </div>
                 </div>
                </div>
             </section>
             <section className='pt-24 container mx-auto'>
             <h1 className='text-center text-4xl font-extrabold pb-16 '> <span className='border-l-4 border-orange-500 p-2'>Latest Cars</span></h1>
-            <div className='grid lg:grid-cols-5 grid-cols-1 pl-4  gap-6 '> 
+            <div className='grid lg:grid-cols-4 grid-cols-1 pl-4  gap-6 '> 
               {  latestcar.map(lcar=>
                   <div className=''>
-                     <div className="card bg-black lg:w-60 w-96 rounded-xl transition ease-in-out  hover:scale-105">
+                     <div className="card bg-black text-white lg:w-72 w-96 rounded-xl transition ease-in-out  hover:scale-105">
     <figure>
       <img
-        src={lcar.car_image} className="w-[250px]  h-[250px] lg:w-[200px]  lg:h-[200px]  pt-10 "
+        src={lcar.car_image} className="w-[250px]  h-[250px] lg:w-[220px]  lg:h-[220px]  pt-10 "
         alt="Car" />
     </figure>
     <div className="card-body lg:pl-7 pl-16">
@@ -106,9 +106,9 @@ borderRadius:"80px"
             </div>
             </section>
             <section className='py-10 container mx-auto'>
-            <h1 className='text-center  text-4xl font-extrabold pb-32 pt-10'><span className='border-l-4 border-orange-500 p-2'>Special Offers</span></h1>
+            <h1 className='text-center  text-4xl font-extrabold pb-28 pt-10'><span className='border-l-4 border-orange-500 p-2'>Special Offers</span></h1>
 
-            <div className='grid lg:grid-cols-3 grid-cols-1 pl-4 gap-4'>
+            <div className='grid lg:grid-cols-3 grid-cols-1 pl-4 gap-4 text-white'>
             <div className="card bg-black w-96  rounded-xl transition ease-in-out   hover:animate-bounce ">
     <figure>
       <img
@@ -118,7 +118,7 @@ borderRadius:"80px"
     <div className="card-body pl-16">
       <h2 className='text-xl'><strong> Black Friday Sale!!!</strong></h2>
       <p>Grab Your Chance.</p>
-      <Link to='/availablecars'><button className='btn bg-orange-500'>Book Now</button></Link>
+      <Link to='/availablecars'><button className='btn bg-orange-500 hover:bg-orange-600 border-none text-white'>Book Now</button></Link>
      
 
     </div>
@@ -134,7 +134,7 @@ borderRadius:"80px"
     <h2 className='text-xl'><strong>Exclusive Car For Rent</strong></h2>
       <p>Up to 30% off</p>
       <p>Grab Your Chance.</p>
-      <Link to='/availablecars'><button className='btn bg-orange-500'>Book Now</button></Link>
+      <Link to='/availablecars'><button className='btn bg-orange-500 hover:bg-orange-600 border-none text-white'>Book Now</button></Link>
      
 
     </div>
@@ -149,7 +149,7 @@ borderRadius:"80px"
     <div className="card-body pl-16">
     <h2 className='text-xl'><strong>Weekend Offer</strong></h2>
       <p>Grab Your Chance.</p>
-    <Link to='/availablecars'><button className='btn bg-orange-500'>Book Now</button></Link>
+    <Link to='/availablecars'><button className='btn bg-orange-500 hover:bg-orange-600 border-none text-white'>Book Now</button></Link>
      
 
     </div>
@@ -187,7 +187,7 @@ borderRadius:"80px"
       </div>
       <hr className='my-4' />
       <div>
-        <h1  className='text-lg font-semibold text-orange-500'>Email</h1>
+        <h1  className='text-lg font-semibold text-orange-500 '>Email</h1>
         <h2>driveswift@gmail.com</h2>
       </div>
       </div>
@@ -195,14 +195,14 @@ borderRadius:"80px"
      <h1 className='font-bold pb-4  text-lg text-white'>Send Messsage</h1>
 <label className="input input-bordered flex items-center gap-2 mb-2">
  
-  <input type="text" className="grow text-black" placeholder="Email" />
+  <input type="text" className="grow text-white" placeholder="Email" />
 </label>
 <label className="input input-bordered flex items-center gap-2 mb-2">
-  <input type="text" className="grow text-black" placeholder="Username" />
+  <input type="text" className="grow text-white" placeholder="Username" />
 </label>
 
-<textarea className="textarea textarea-bordered grow w-full text-black" placeholder="Message"></textarea>
-<button className='btn bg-orange-500 hover:bg-orange-600 text-white font-bold' >Send</button>
+<textarea className="textarea textarea-bordered grow w-full text-white" placeholder="Message"></textarea>
+<button className='btn bg-orange-500 hover:bg-orange-600 border-none text-white font-bold' >Send</button>
 
       </div>
       {/* <h1 className="mb-5 text-5xl font-bold">Drive Your Dreams Today!</h1>
@@ -220,9 +220,9 @@ borderRadius:"80px"
             <h1 className='text-center text-4xl font-extrabold pb-28 '>
             <span className='border-l-4 border-orange-500 p-2'>Customers Review</span></h1>
             <div>
-            <Marquee>
+            <Marquee className='text-white'>
 
-            <div className="card bg-black mr-8 w-96 shadow-xl">
+            <div className="card bg-black mr-8 w-96 shadow-xl ">
   <div className="card-body">
   <div className="rating">
   <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />

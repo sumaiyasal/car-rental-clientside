@@ -65,9 +65,9 @@ const Addcar = () => {
 
     }
     return (
-       <div className="bcolor pb-10">
+       <div className="dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020] pb-10">
          <div className="container mx-auto">
-           <h1 className="text-center text-3xl p-8  font-extrabold text-white ">Add Car</h1> 
+           <h1 className="text-center text-3xl p-8  font-extrabold ">Add Car</h1> 
            <div className="min-h-screen flex justify-center items-center"
            style={{
             backgroundImage: `url(${cpic})`,
@@ -90,7 +90,7 @@ const Addcar = () => {
               name="model"
               type="text"
               placeholder="model name"
-              className="input input-bordered"
+              className="input input-bordered text-black bg-white"
               required
             />
             </div>
@@ -103,7 +103,7 @@ const Addcar = () => {
               name="daily_price"
               type="text"
               placeholder="price"
-              className="input input-bordered"
+              className="input input-bordered text-black bg-white"
               required
             />
             </div>
@@ -116,7 +116,7 @@ const Addcar = () => {
               name="availability"
               type="text"
               placeholder="availability"
-              className="input input-bordered"
+              className="input input-bordered text-black bg-white"
               required
             />
             </div>
@@ -129,12 +129,12 @@ const Addcar = () => {
               name="rnumber"
               type="text"
               placeholder="registration number"
-              className="input input-bordered"
+              className="input input-bordered text-black bg-white"
               required
             />
             </div>
     
-            <div className="form-control text-black">
+            <div className="form-control text-black ">
             <label className="label">
                 <span className="label-text text-white">Features</span>
               </label>
@@ -172,7 +172,7 @@ const Addcar = () => {
               <textarea
               name="description"
              placeholder="Description"
-             className="input input-bordered"
+             className="input input-bordered text-black bg-white"
                required
               ></textarea>
             </div>
@@ -184,7 +184,7 @@ const Addcar = () => {
               name="bcount"
               type="number"
               placeholder="Booking number"
-              className="input input-bordered"
+              className="input input-bordered text-black bg-white"
               defaultValue={0}
               readOnly
               required
@@ -192,13 +192,13 @@ const Addcar = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-white">Car Image</span>
+                <span className="label-text text-white ">Car Image</span>
               </label>
               <input
               type="text"
               name="car_image"
               placeholder="photo-url"
-              className="input input-bordered"
+              className="input input-bordered bg-white"
               required
             />
             </div>
@@ -210,7 +210,7 @@ const Addcar = () => {
               name="location"
               type="text"
               placeholder="location"
-              className="input input-bordered"
+              className="input input-bordered text-black bg-white"
               required
             />
             </div>
@@ -218,13 +218,13 @@ const Addcar = () => {
               <label className="label">
                 <span className="label-text text-white">Booking Date</span>
               </label>
-              <input type="date" id="date" name="date" required  className="input input-bordered"/>
+              <input type="date" id="date" name="date" required  className="text-black bg-white input input-bordered"/>
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-white">Booking Status</span>
               </label>
-              <input type="status" id="status" name="status" value="Pending" className="input input-bordered"/>
+              <input type="status" id="status" name="status" value="Pending" className="input input-bordered text-black bg-white"/>
             </div>
             
            
@@ -242,7 +242,7 @@ const Addcar = () => {
               placeholder="email"
               value={user.email} 
             readOnly
-              className="input input-bordered"
+              className="input input-bordered text-black bg-white"
               required
             />
           </div>
@@ -250,7 +250,7 @@ const Addcar = () => {
          
 
             <div className="form-control mt-6">
-              <button className="btn btn-neutral rounded-xl mb-2">Add Car</button>
+              <button className="btn bg-orange-500 hover:bg-orange-600 text-white border-none rounded-xl mb-2">Add Car</button>
               
             </div>
           </form>

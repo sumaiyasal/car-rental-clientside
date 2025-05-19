@@ -66,9 +66,9 @@ const location = useLocation();
                 })
         }
     return (
-        <div className='home'>
-            <div className="w-[80%] home mx-auto py-4">
-            <div className="hero bg-base-200 min-h-screen">
+        <div className='dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020]'>
+            <div className="w-[80%]  mx-auto py-4">
+            <div className="hero dark:bg-slate-200 bg-slate-200 shadow-slate-700 shadow-md min-h-screen ">
   <div className="hero-content flex-col text-black lg:flex-row gap-24 justify-between items-center ">
     <div className="border-4">
     <img
@@ -90,9 +90,9 @@ const location = useLocation();
       <p> {features?.map(fet=><li>{fet}</li>)}</p>
       
       <button onClick={()=>document.getElementById('my_modal_1').showModal()
-        } className='bg-orange-500 btn'>Book Now</button>
+        } className='bg-orange-500 hover:bg-orange-600 text-white border-none btn'>Book Now</button>
            <dialog id="my_modal_1" className="modal">
-  <div className="modal-box">
+  <div className="modal-box bg-white">
   <h3 className='text-center pb-4 text-lg font-bold'>Booking Summary</h3>
             <p><strong>Car Model:</strong> {model}</p>
             <p><strong>Price Per Day:</strong> {daily_price}</p>
@@ -100,11 +100,11 @@ const location = useLocation();
            
             <p><strong>Features:</strong> {features?.join(', ')}</p>
             
-    <div className="modal-action ">
-      <form method="dialog" className='flex items-center justify-center gap-4'>
+    <div className="modal-action  ">
+      <form method="dialog" className='flex items-center justify-center gap-4  '>
         {/* if there is a button in form, it will close the modal */}
-        <button className='btn items-center bg-orange-500' onClick={handleclick}>Confirm</button>
-        <button className="btn bg-red-500">Close</button>
+        <button className='btn items-center bg-orange-500 hover:bg-orange-600 text-white border-none' onClick={handleclick}>Confirm</button>
+        <button className="btn bg-red-500 hover:bg-red-600 border-none text-white">Close</button>
       </form>
     </div>
   </div>

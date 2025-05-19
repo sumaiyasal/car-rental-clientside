@@ -25,25 +25,25 @@ const handleSortChange = (e) => {
     setView(view === 'grid' ? 'list' : 'grid');
   };
     return (
-     <div className="home">
-        <div className="container mx-auto pb-6">
+     <div className="dark:bg-[#202020] dark:text-white bg-slate-100 text-[#202020]">
+        <div className="container mx-auto pb-6 ">
         <h1 className='text-center text-4xl font-extrabold p-16 '>Available Cars</h1>
-        <div className="flex  justify-between items-center p-4">
+        <div className="flex  justify-between items-center p-4 pb-16">
         <div className="sorting-options text-black pb-4">
-        <label className="text-white">Sort By: </label>
-        <select onChange={handleSortChange} value={sortOption}>
+        <label className="dark:text-white text-black font-semibold">Sort By: </label>
+        <select onChange={handleSortChange} value={sortOption} className="bg-white shadow-lg">
           <option value="dateAddedDesc">Date (Newest First)</option>
           <option value="dateAddedAsc">Date (Oldest First)</option>
         </select>
       </div>
 
-      <div className="search-bar p-4 text-black">
+      <div className="search-bar p-4 text-black ">
           <input 
             type="text" 
             placeholder="Search by model" 
             value={searchQuery} 
             onChange={handleSearchChange} 
-            className="p-2 rounded-md"
+            className="p-2 rounded-md bg-white shadow-lg"
           />
         </div>
 
@@ -54,10 +54,10 @@ const handleSortChange = (e) => {
       </div>
         </div>
       
-          <div className={view=='grid'?'grid lg:grid-cols-4 grid-cols-1 gap-8 pl-4':'grid grid-cols-1 gap-8 pl-4'}> 
+          <div className={view=='grid'?'grid lg:grid-cols-4 grid-cols-1 gap-8 pl-4':'grid grid-cols-1 gap-8 pl-4 '}> 
               {  availcars.map(lcar=>
                   <div className=''>
-                     <div className="card bg-black lg:w-72 w-96  rounded-xl ">
+                     <div className="card bg-black text-white lg:w-72 w-96  rounded-xl ">
     <figure >
       <img
         src={lcar.car_image} className="lg:w-[250px] lg:h-[200px] w-[300px] h-[300px] pt-10  "
@@ -70,7 +70,7 @@ const handleSortChange = (e) => {
       <p>Availability : {lcar.availability}</p>
       <p>Booking_count : {lcar.booking_count}</p>
       <p>Posted on :{lcar.date_posted}</p>
-       <Link to={`/cardetails/${lcar._id}`}><button className="btn bg-orange-500">Book Now</button></Link>
+       <Link to={`/cardetails/${lcar._id}`}><button className="btn bg-orange-500 hover:bg-orange-600 text-white">Book Now</button></Link>
     </div>
   </div> 
                   </div>
