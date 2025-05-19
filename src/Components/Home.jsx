@@ -26,7 +26,7 @@ const Home = () => {
         <section className="pt-16 px-4 ">
   <div className="container mx-auto">
     <div
-      className="hero min-h-[400px] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] overflow-hidden"
+      className="hero min-h-[500px] rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] overflow-hidden"
       style={{
         backgroundImage:
           "url(https://images.pexels.com/photos/909907/pexels-photo-909907.jpeg?auto=compress&cs=tinysrgb&w=600)",
