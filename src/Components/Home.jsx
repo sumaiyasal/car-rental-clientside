@@ -79,32 +79,35 @@ borderRadius:"80px"
                 </div>
                </div>
             </section>
-            <section className='pt-24 container mx-auto'>
-            <h1 className='text-center text-4xl font-extrabold pb-16 '> <span className='border-l-4 border-orange-500 p-2'>Latest Cars</span></h1>
-            <div className='grid lg:grid-cols-4 grid-cols-1 pl-4  gap-6 '> 
-              {  latestcar.map(lcar=>
-                  <div className=''>
-                     <div className="card bg-black text-white lg:w-72 w-96 rounded-xl transition ease-in-out  hover:scale-105">
-    <figure>
-      <img
-        src={lcar.car_image} className="w-[250px]  h-[250px] lg:w-[220px]  lg:h-[220px]  pt-10 "
-        alt="Car" />
-    </figure>
-    <div className="card-body lg:pl-7 pl-16">
-      <h2 className="card-title">{lcar.model}</h2>
-     
-      <p>Price : {lcar.daily_price}</p>
-      <p>Availability : {lcar.availability}</p>
-      <p>Booking_count : {lcar.booking_count}</p>
-      <p>Posted on :{lcar.date_posted}</p>
+           <section className="pt-24 container mx-auto px-4">
+  <h1 className="text-center text-4xl font-extrabold pb-16">
+    <span className="border-l-4 border-orange-500 p-2">Latest Cars</span>
+  </h1>
 
-    </div>
-  </div> 
-                  </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {latestcar.map((lcar, index) => (
+      <div key={index} className="flex justify-center">
+        <div className="card bg-black text-white w-full max-w-xs rounded-xl transition ease-in-out hover:scale-105">
+          <figure>
+            <img
+              src={lcar.car_image}
+              alt="Car"
+              className="w-[220px] h-[220px] object-cover pt-10 mx-auto"
+            />
+          </figure>
+          <div className="card-body text-left px-6">
+            <h2 className="card-title">{lcar.model}</h2>
+            <p>Price: {lcar.daily_price}</p>
+            <p>Availability: {lcar.availability}</p>
+            <p>Booking Count: {lcar.booking_count}</p>
+            <p>Posted on: {lcar.date_posted}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
-              )}
-            </div>
-            </section>
             <section className='py-10 container mx-auto'>
             <h1 className='text-center  text-4xl font-extrabold pb-28 pt-10'><span className='border-l-4 border-orange-500 p-2'>Special Offers</span></h1>
 
@@ -160,61 +163,61 @@ borderRadius:"80px"
             
             
             </section>
-            <section className='py-10 container mx-auto'>
-            <h1 className='text-center  text-4xl font-extrabold pb-24 pt-10'><span className='border-l-4 border-orange-500 p-2'>Contact Us</span></h1>
-            <div
-  className="hero min-h-[400px] container mx-auto "
-  style={{
-    backgroundImage: `url(${car2})`,
-    backgroundSize:"cover",
-backgroundPosition: "center",
-backgroundRepeat: "no-repeat",
-borderRadius:"80px"
-   
-  }}>
-  <div className="hero-overlay bg-opacity-60 rounded-[80px]"></div>
-  <div className=" text-neutral-content text-center w-3/5">
-    <div className="max-w-full   flex  items-center justify-between ">
-      <div className='text-left'>
-      <div>
-        <h1 className='text-lg font-semibold text-orange-500'>Adress</h1>
-        <h2>2126 Nasirabad,Chattogram</h2>
-      </div>
-      <hr  className='my-4'/>
-      <div>
-        <h1  className='text-lg font-semibold text-orange-500'>Phone</h1>
-        <h2>01356172945</h2>
-      </div>
-      <hr className='my-4' />
-      <div>
-        <h1  className='text-lg font-semibold text-orange-500 '>Email</h1>
-        <h2>driveswift@gmail.com</h2>
-      </div>
-      </div>
-      <div className='bg-white/15 p-10'>
-     <h1 className='font-bold pb-4  text-lg text-white'>Send Messsage</h1>
-<label className="input input-bordered flex items-center gap-2 mb-2">
- 
-  <input type="text" className="grow text-white" placeholder="Email" />
-</label>
-<label className="input input-bordered flex items-center gap-2 mb-2">
-  <input type="text" className="grow text-white" placeholder="Username" />
-</label>
+           <section className="py-10 container mx-auto px-4">
+  <h1 className="text-center text-4xl font-extrabold pb-24 pt-10">
+    <span className="border-l-4 border-orange-500 p-2">Contact Us</span>
+  </h1>
 
-<textarea className="textarea textarea-bordered grow w-full text-white" placeholder="Message"></textarea>
-<button className='btn bg-orange-500 hover:bg-orange-600 border-none text-white font-bold' >Send</button>
+  <div
+    className="hero min-h-[400px] rounded-[40px] overflow-hidden"
+    style={{
+      backgroundImage: `url(${car2})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    <div className="hero-overlay bg-opacity-60"></div>
 
+    <div className="text-neutral-content text-center w-full px-4 py-10">
+      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-10 lg:px-10">
+
+        {/* Contact Info */}
+        <div className="text-left w-full lg:w-1/2 space-y-6">
+          <div>
+            <h1 className="text-lg font-semibold text-orange-500">Address</h1>
+            <p>2126 Nasirabad, Chattogram</p>
+          </div>
+          <hr className="border-gray-400" />
+          <div>
+            <h1 className="text-lg font-semibold text-orange-500">Phone</h1>
+            <p>01356172945</p>
+          </div>
+          <hr className="border-gray-400" />
+          <div>
+            <h1 className="text-lg font-semibold text-orange-500">Email</h1>
+            <p>driveswift@gmail.com</p>
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="bg-white/15 p-6 rounded-xl w-full lg:w-1/2 max-w-md">
+          <h1 className="font-bold pb-4 text-lg text-white">Send Message</h1>
+          <label className="input input-bordered flex items-center gap-2 mb-3 w-full">
+            <input type="text" className="grow text-white" placeholder="Email" />
+          </label>
+          <label className="input input-bordered flex items-center gap-2 mb-3 w-full">
+            <input type="text" className="grow text-white" placeholder="Username" />
+          </label>
+          <textarea className="textarea textarea-bordered w-full mb-3 text-white" placeholder="Message"></textarea>
+          <button className="btn w-full bg-orange-500 hover:bg-orange-600 border-none text-white font-bold">
+            Send
+          </button>
+        </div>
       </div>
-      {/* <h1 className="mb-5 text-5xl font-bold">Drive Your Dreams Today!</h1>
-      <Link to='/availablecars'><button className="btn bg-orange-500 hover:bg-orange-600 text-white font-bold ">View Available Cars</button></Link> */}
-      
     </div>
   </div>
-</div>
-           
-            
-            
-            </section>
+</section>
+
 
             <section className='py-12 container mx-auto '>
             <h1 className='text-center text-4xl font-extrabold pb-28 '>

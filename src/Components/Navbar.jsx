@@ -7,8 +7,7 @@ import { AuthContext } from "./Authprovide";
 // import { Tooltip } from 'react-tooltip'
 const Navbar = () => {
   const{user,signout,toggleTheme}=useContext(AuthContext);
-  console.log(user);
-    console.log(toggleTheme)
+ 
   
  
 const links=<>
@@ -87,10 +86,13 @@ const links=<>
       </ul>
     </div>
     <div className="flex items-center">
-      <div className="sm:hidden md:flex">
+      <div className="md:hidden  lg:flex ">
       <img src={car} alt="" className="w-24"/>
       </div>
-    <a className="btn btn-ghost text-3xl font-bold bg-gradient-to-r dark:from-orange-200 dark:to-orange-500 from-orange-400 to-orange-600 bg-clip-text text-transparent">DriveSwiift</a>
+                <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r dark:from-orange-200 dark:to-orange-500 from-orange-400 to-orange-600 bg-clip-text text-transparent">
+                                DriveSwiift
+            </span>
+
     </div>
     
     
